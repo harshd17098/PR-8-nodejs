@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../assets/images/favicon.svg" type="image/x-icon" />
+    <title>Form Elements HRD | PlainAdmin Demo</title>
+
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/assets/css/lineicons.css" />
+    <link rel="stylesheet" href="/assets/css/materialdesignicons.min.css" />
+    <link rel="stylesheet" href="/assets/css/fullcalendar.css" />
+    <link rel="stylesheet" href="/assets/css/main.css" />
+</head>
+
+<body>
+    <div id="preloader">
+        <div class="spinner"></div>
+    </div>
+    <main class="main-wrapper">
+        <%- include('../navBar.ejs')%>
+
+            <section class="tab-components">
+                <div class="container-fluid">
+                    <div class="title-wrapper pt-30">
+                        <div class="row align-items-center">
+                            <div class="col-md-6">
+                                <div class="title">
+                                    <h2>Edit Form</h2>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="breadcrumb-wrapper">
+                                    <nav aria-label="breadcrumb">
+                                        <ol class="breadcrumb">
+                                            <li class="breadcrumb-item">
+                                                <a href="/">Dashboard</a>
+                                            </li>
+                                            <li class="breadcrumb-item"><a href="#0">Forms</a></li>
+                                            <li class="breadcrumb-item active" aria-current="page">
+                                                Admin Form
+                                            </li>
+                                        </ol>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-elements-wrapper">
+                        <div class="row ">
+                            <form method="post" action="/Admin/admin/updateAdmin/<%= editAdmin.id %>" enctype="multipart/form-data">
+                                <div class="col-lg-9">
+                                    <div class="card-style mb-30">
+                                        <h6 class="mb-25">Input Fields</h6>
+                                        <div class="input-style-2">
+                                            <label>Full Name</label>
+                                            <input type="text" class="firstname" name="firstname"
+                                                placeholder="First Name" value="<%= editAdmin.firstname %>" />
+                                            <span class="icon"> <i class="lni lni-user"></i> </span>
+                                        </div>
+                                        <div class="input-style-2">
+                                            <input type="text" class="lastname" name="lastname" placeholder="Last Name"
+                                                value="<%= editAdmin.lastname %>" />
+                                            <span class="icon"> <i class="lni lni-user"></i> </span>
+                                        </div>
+                                        <div class="input-style-2">
+                                            <input type="email" name="email" placeholder="Email"
+                                                value="<%= editAdmin.email %>" />
+                                            <span class="icon"><i class="lni lni-user"></i></span>
+                                        </div>
+                                        <div class="input-style-2">
+                                            <input type="password" name="password" placeholder="password"
+                                                value="<%= editAdmin.password %>" />
+                                            <span class="icon"><i class="lni lni-user"></i></span>
+                                        </div>
+                                        <div class="form-check radio-style mb-20"
+                                            style="display: flex; flex-wrap: wrap;justify-content: space-evenly;">
+                                            <label for="" style="font-weight: 700;">Gender:-</label>
+                                            <div>
+
+                                                <input class="form-check-input" type="radio" value="Male" name="gender"
+                                                    id="radio-1"<% if(editAdmin.gender == "Male"){ %>checked <% } %> />
+                                                <label class="form-check-label" for="radio-1">
+                                                    Male</label>
+                                            </div>
+                                            <div>
+                                                <input class="form-check-input" type="radio" value="Female"
+                                                    name="gender" id="radio-1" <% if(editAdmin.gender == "Female"){ %>checked <% } %> />
+                                                <label class="form-check-label" for="radio-1">
+                                                    Female</label>
+                                            </div>
+                                        </div>
+                                        <br><br>
+                                        
+
+                                        <div class="input-style-2">
+                                            <input type="number" name="contactnb" placeholder="Contact-Number"
+                                                value="<%= editAdmin.contactnb %>" />
+                                            <span class="icon"><i class="lni lni-user"></i></span>
+                                        </div>
+                                        <div class="input-group mb-5 input-style-2">
+                                            <input type="file" class="form-control" name="adminImg">
+                                            
+                                        </div>
+                                        <div style="margin-left: 130px; font-size: 50px;" >
+                                            <i class="lni lni-angle-double-down"></i>
+                                        </div>
+                                        <img src="<%= editAdmin.adminImg %>" height="190px" alt="">
+                                        <div style="display: flex; justify-content: center;">
+                                            <button type="submit" class="btn btn-outline-primary btn-lg">Edit</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <footer class="footer">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-6 order-last order-md-first">
+                            <div class="copyright text-center text-md-start">
+                                <p class="text-sm">
+                                    Designed and Developed by
+                                    <a href="https://plainadmin.com" rel="nofollow" target="_blank">
+                                        PlainAdmin
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="terms d-flex justify-content-center justify-content-md-end">
+                                <a href="#0" class="text-sm">Term & Conditions</a>
+                                <a href="#0" class="text-sm ml-15">Privacy & Policy</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+    </main>
+    <script src="/assets/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/js/Chart.min.js"></script>
+    <script src="/assets/js/dynamic-pie-chart.js"></script>
+    <script src="/assets/js/moment.min.js"></script>
+    <script src="/assets/js/fullcalendar.js"></script>
+    <script src="/assets/js/jvectormap.min.js"></script>
+    <script src="/assets/js/world-merc.js"></script>
+    <script src="/assets/js/polyfill.js"></script>
+    <script src="/assets/js/main.js"></script>
+</body>
+
+</html>

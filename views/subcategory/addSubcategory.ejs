@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="./assets/images/favicon.svg" type="image/x-icon" />
+    <title>Form Elements HRD | PlainAdmin Demo</title>
+
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/assets/css/lineicons.css" />
+    <link rel="stylesheet" href="/assets/css/materialdesignicons.min.css" />
+    <link rel="stylesheet" href="/assets/css/fullcalendar.css" />
+    <link rel="stylesheet" href="/assets/css/main.css" />
+</head>
+
+<body>
+    <div id="preloader">
+        <div class="spinner"></div>
+    </div>
+    <main class="main-wrapper">
+        <%- include('../navBar.ejs')%>
+            <section class="tab-components">
+                <div class="container-fluid">
+                    <div class="title-wrapper pt-30">
+                        <div class="row align-items-center">
+                            <div class="col-md-6">
+                                <div class="title">
+                                    <h2>Subcategory Form</h2>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="breadcrumb-wrapper">
+                                    <nav aria-label="breadcrumb">
+                                        <ol class="breadcrumb">
+                                            <li class="breadcrumb-item">
+                                                <a href="/">Dashboard</a>
+                                            </li>
+                                            <li class="breadcrumb-item"><a href="#0">Forms</a></li>
+                                            <li class="breadcrumb-item active" aria-current="page">
+                                                Admin Form
+                                            </li>
+                                        </ol>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-elements-wrapper">
+                        <div class="row ">
+                            <form method="post" action="/Admin/subcategory/addSubcategory">
+                                <div class="col-lg-9">
+                                    <div class="card-style mb-30">
+                                        <h6 class="mb-25">Input Fields</h6>
+
+                                        <div class="input-style-2">
+                                            <select name="categoryId">
+                                                <option value="">------ Select Category ------</option>
+                                                <% for(let cateogry of categories) { %>
+                                                    <option value="<%= cateogry.id %>"><%= cateogry.categoryName %></option>
+                                                <% } %>
+                                            </select>
+                                        </div>
+                                        <div class="input-style-2">
+                                            <input type="text" class="subCategory" name="subCategory" placeholder="Enter Sub Category Name" required />
+                                            <span class="icon"> <i class="lni lni-user"></i> </span>
+                                        </div>
+                                        
+                                    
+                                        <div style="display: flex; justify-content: center;">
+                                            <button type="submit" class="btn btn-outline-primary btn-lg">Add Sub Category</button>                                           </div>
+                                    </div>                                       
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <footer class="footer">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-6 order-last order-md-first">
+                            <div class="copyright text-center text-md-start">
+                                <p class="text-sm">
+                                    Designed and Developed by
+                                    <a href="https://plainadmin.com" rel="nofollow" target="_blank">
+                                        PlainAdmin
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="terms d-flex justify-content-center justify-content-md-end">
+                                <a href="#0" class="text-sm">Term & Conditions</a>
+                                <a href="#0" class="text-sm ml-15">Privacy & Policy</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+    </main>
+    <script src="/assets/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/js/Chart.min.js"></script>
+    <script src="/assets/js/dynamic-pie-chart.js"></script>
+    <script src="/assets/js/moment.min.js"></script>
+    <script src="/assets/js/fullcalendar.js"></script>
+    <script src="/assets/js/jvectormap.min.js"></script>
+    <script src="/assets/js/world-merc.js"></script>
+    <script src="/assets/js/polyfill.js"></script>
+    <script src="/assets/js/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Bookstore</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+       
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        form {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        label {
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        select {
+            padding: 5px;
+            font-size: 16px;
+        }
+
+        /* Header styles */
+        header {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        header img {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+            margin-right: 10px;
+        }
+
+        header nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        header nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+        }
+
+        header nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* Card container styles */
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            max-width: 1200px;
+            margin: 20px auto;
+        }
+
+        .card {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            width: 450px;
+            height:450px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        .card img {
+            margin-top: 15px;
+            border: 1px solid gray;
+            border-radius: 10px;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 15px;
+        }
+
+        .card-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .card-description {
+            font-size: 1rem;
+            color: #555;
+        }
+
+        @media (max-width: 768px) {
+            .card {
+                width: 200px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .card {
+                width: 150px;
+            }
+
+            header nav {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Header with logo and navigation -->
+    <header>
+        <div style="display: flex; align-items: center;">
+            <img src="https://via.placeholder.com/40" alt="Bookstore Logo">
+            <span style="font-size: 1.5rem; font-weight: bold;">Bookstore</span>
+        </div>
+        <nav  >
+            <a style="padding: 10px; border: 1px solid greenyellow; background-color: rgba(245, 245, 220, 0.345);" href="/Admin">SingIn</a>
+           
+        </nav>
+    </header>
+    <form method="GET" action="/" >
+        <label for="sort">Sort by Price:</label>
+        <select name="sort" id="sort" style="margin-top: 20px;" onchange="this.form.submit()">
+            <option value="">Select</option>
+            <option value="low-to-high">Low to High</option>
+            <option value="high-to-low">High to Low</option>
+        </select>
+    </form>
+
+    <!-- Card container -->
+    <div class="card-container">
+        
+        <% book.map((books)=> { %>
+
+        <div class="card">
+           <a href="/singleBook/<%=books.id%>"> <img src="<%=books.bookImg%>" alt="Book Image"></a>
+            <div class="card-content">
+                <div class="card-title"><%=books.title%></div>
+                <div class="card-description" style="font-weight: 600;">Price:-<%=books.price%>.</div>
+
+            </div>
+        </div>
+        <% }) %>
+
+     
+    </div>
+</body>
+</html>

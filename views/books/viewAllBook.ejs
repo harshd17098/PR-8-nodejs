@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="/assets/images/favicon.svg" type="image/x-icon" />
+    <title>Tables | PlainAdmin Demo</title>
+
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/assets/css/lineicons.css" />
+    <link rel="stylesheet" href="/assets/css/materialdesignicons.min.css" />
+    <link rel="stylesheet" href="/assets/css/fullcalendar.css" />
+    <link rel="stylesheet" href="/assets/css/main.css" />
+</head>
+
+<body>
+    <div id="preloader">
+        <div class="spinner"></div>
+    </div>
+
+    <main class="main-wrapper">
+        <%- include("../navBar.ejs")%>
+
+
+            <section class="card-components">
+                <div class="container-fluid">
+                    <!-- ========== title-wrapper start ========== -->
+                    <div class="title-wrapper pt-30">
+                        <div class="row align-items-center">
+                            <div class="col-md-6">
+                                <div class="title">
+                                    <h2>All Book</h2>
+                                </div>
+                            </div>
+                            <!-- end col -->
+                            <div class="col-md-6">
+                                <div class="breadcrumb-wrapper">
+                                    <nav aria-label="breadcrumb">
+                                        <ol class="breadcrumb">
+                                            <li class="breadcrumb-item">
+                                                <a href="#0">Dashboard</a>
+                                            </li>
+                                            <li class="breadcrumb-item">
+                                                <a href="#0">UI Components</a>
+                                            </li>
+                                            <li class="breadcrumb-item active" aria-current="page">
+                                                Cards
+                                            </li>
+                                        </ol>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cards-styles">
+                        <div class="row">
+                            <% if (book.length > 0) { %>
+                                <% book.forEach((books) => { %>
+                                    <% if (loginuser.email == books.authorEmail) { %>
+                                        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
+                                            <div class="card-style-1 mb-30">
+                                                <div class="card-meta">
+                                                    <div class="image">
+                                                        <img src="" alt="" />
+                                                    </div>
+                                                    <div class="text">
+                                                        <p class="text-sm text-medium">
+                                                            Posted by : <a href="#0">
+                                                                <%= books.title %>
+                                                            </a>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div class="card-image">
+                                                    <a href="#0">
+                                                        <img style="height: 500px;" src="<%= books.bookImg %>" alt="" />
+                                                    </a>
+                                                </div>
+                                                <div class="card-content">
+                                                    <h4><a href="#0">
+                                                            <%= books.categoryId.categoryName %>
+                                                        </a></h4>
+                                                </div>
+                                                <div class="card-content">
+                                                    <h4><a href="#0">
+                                                            <%= books.subcategoryId.subCategory %>
+                                                        </a></h4>
+                                                </div>
+                                                <div style="display: flex; justify-content: center; font-size: 25px;">
+                                                    <a href="/Admin/book/delete/<%= books.id %>" class="text-danger" style="margin-right: 25px;">
+                                                        <i class="lni lni-trash-can"></i>
+                                                    </a>
+                                                    <a href="/Admin/book/editBook/<%= books.id %>">
+                                                        <span class="text-success"> <i class="lni lni-pencil-alt"></i></span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    <% } %>
+                                <% }) %>
+                            <% } else { %>
+                                <p style="color: black;">No books available</p>
+                            <% } %>
+                        </div>
+                    </div>
+
+                </div>
+                </div>
+            </section>
+    </main>
+
+    <script src="/assets/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/js/Chart.min.js"></script>
+    <script src="/assets/js/dynamic-pie-chart.js"></script>
+    <script src="/assets/js/moment.min.js"></script>
+    <script src="/assets/js/fullcalendar.js"></script>
+    <script src="/assets/js/jvectormap.min.js"></script>
+    <script src="/assets/js/world-merc.js"></script>
+    <script src="/assets/js/polyfill.js"></script>
+    <script src="/assets/js/main.js"></script>
+</body>
+
+</html>

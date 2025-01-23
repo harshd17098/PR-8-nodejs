@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="./assets/images/favicon.svg" type="image/x-icon" />
+    <title>Form Elements HRD | PlainAdmin Demo</title>
+
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/assets/css/lineicons.css" />
+    <link rel="stylesheet" href="/assets/css/materialdesignicons.min.css" />
+    <link rel="stylesheet" href="/assets/css/fullcalendar.css" />
+    <link rel="stylesheet" href="/assets/css/main.css" />
+</head>
+
+<body>
+    <div id="preloader">
+        <div class="spinner"></div>
+    </div>
+    <main class="main-wrapper">
+        <%- include('../navBar.ejs')%>
+            <section class="tab-components">
+                <div class="container-fluid">
+                    <div class="title-wrapper pt-30">
+                        <div class="row align-items-center">
+                            <div class="col-md-6">
+                                <div class="title">
+                                    <h2>Edit Form For Book</h2>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="breadcrumb-wrapper">
+                                    <nav aria-label="breadcrumb">
+                                        <ol class="breadcrumb">
+                                            <li class="breadcrumb-item">
+                                                <a href="/">Dashboard</a>
+                                            </li>
+                                            <li class="breadcrumb-item"><a href="#0">Forms</a></li>
+                                            <li class="breadcrumb-item active" aria-current="page">
+                                                Admin Form
+                                            </li>
+                                        </ol>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-elements-wrapper">
+                        <div class="row ">
+                            <form method="post" action="/Admin/book/editBook/<%= book.id %>" enctype="multipart/form-data">
+                                <div class="col-lg-9">
+                                    <div class="card-style mb-30">
+                                        <h6 class="mb-25">Select Category</h6>
+
+                                        <div class="input-style-2">
+                                            <select name="categoryId" id="categoryId" style="width: 100%; padding: 10px;">
+                                                <% for(let category of categories) { %>
+                                                    <option value="<%= category.id %>" <%
+                                                        if(category.id==book.categoryId) { %> selected <% } %> >
+                                                            <%= category.categoryName %>
+                                                    </option>
+                                                    <% } %>
+                                            </select>
+                                        </div>
+                                        <div class="input-style-2">
+                                            <h6 class="mb-25">Select Subcategory:</h6>
+
+                                            <select name="subcategoryId" id="subcategoryId"style="width: 100%; padding: 10px;">
+                                                <% for(let subcategory of subcategories) { %>
+                                                    <option value="<%= subcategory.id %>" <%
+                                                        if(subcategory.id==book.subcategoryId) { %> selected <% } %> >
+                                                            <%= subcategory.subCategory %>
+                                                    </option>
+                                                    <% } %>
+                                            </select>
+                                        </div>
+                                        <div class="input-style-2">
+                                            <input type="text" class="title" name="title" placeholder="Enter title" value="<%= book.title%>" />
+                                            <span class="icon"> <i class="lni lni-user"></i> </span>
+                                        </div>
+                                        <div class="input-style-2">
+                                            <input type="text" class="publishedName" name="publishedName" placeholder="published Name" value="<%= book.publishedName%>" />
+                                            <span class="icon"> <i class="lni lni-user"></i> </span>
+                                        </div>
+                                        <div class="input-style-2">
+                                            <input type="date" name="publishedDate" placeholder="Published Date" value="<%= book.publishedDate%>" />
+                                            <span class="icon"><i class="lni lni-envelope"></i></span>
+                                        </div>
+                                        <div class="input-style-2">
+                                            <input type="text" name="bookPages" placeholder="book Pages" value="<%= book.bookPages%>" />
+                                            <span class="icon"><i class="lni lni-key"></i></span>
+                                        </div>
+                                        <div class="input-style-2">
+                                            <input type="number" name="price" placeholder="book price" value="<%= book.price%>" />
+                                            <span class="icon"><i class="lni lni-key"></i></span>
+                                        </div>
+                                        <br><br>
+                                       
+                                        <div class="input-style-2">
+                                            <input type="time" name="publishedTime" placeholder="Time" value="<%= book.publishedTime%>"/>
+                                        </div>
+                                        <div class="input-style-2">
+                                            <input type="number" name="stock" placeholder="stock" value="<%= book.stock%>" />
+                                            <span class="icon"><i class="lni lni-phone"></i></span>
+                                        </div>
+                                       
+                                        <div class="input-group mb-5 input-style-2">
+                                            <input type="text" class="form-control" placeholder="escription" name="description"
+                                            value="<%= book.description%>">
+                                        </div>
+                                        <div class="input-style-2">
+                                            <input type="file" name="bookImg"  value="<%= book.bookImg%>" />
+                                            <img src="<%= book.bookImg%>" height="150px" style="margin-top: 10px;"alt="">
+                                        </div>
+
+                                        
+                                        <div style="display: flex; justify-content: center;">
+                                            <button type="submit" class="btn btn-outline-primary btn-lg">Edit Book
+                                                </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <footer class="footer">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-6 order-last order-md-first">
+                            <div class="copyright text-center text-md-start">
+                                <p class="text-sm">
+                                    Designed and Developed by
+                                    <a href="https://plainadmin.com" rel="nofollow" target="_blank">
+                                        PlainAdmin
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="terms d-flex justify-content-center justify-content-md-end">
+                                <a href="#0" class="text-sm">Term & Conditions</a>
+                                <a href="#0" class="text-sm ml-15">Privacy & Policy</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+    </main>
+    <script src="/assets/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/js/Chart.min.js"></script>
+    <script src="/assets/js/dynamic-pie-chart.js"></script>
+    <script src="/assets/js/moment.min.js"></script>
+    <script src="/assets/js/fullcalendar.js"></script>
+    <script src="/assets/js/jvectormap.min.js"></script>
+    <script src="/assets/js/world-merc.js"></script>
+    <script src="/assets/js/polyfill.js"></script>
+    <script src="/assets/js/main.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function(){
+            const categorySelect = document.getElementById('categoryId');
+            const subCategorySelect = document.getElementById('subcategoryId');
+    
+            categorySelect.addEventListener("change", function(){
+                let categoryId = categorySelect.value;
+                subCategorySelect.innerHTML = `<option value="" style="display: none;" selected>----- Select Sub Category -----</option>`;
+                fetch(`/Admin/book/getAllcategoies?categoryId=${categoryId}`)
+                .then((res) => res.json())
+                .then((data) => {                    
+                    if(data.subCategories && data.subCategories.length > 0){
+                        data.subCategories.forEach(subCategory => {
+                            let option = document.createElement("option");
+                            option.value = `${subCategory._id}`;
+                            option.textContent = `${subCategory.subCategory}`;
+                            subCategorySelect.appendChild(option);    
+                        });
+                    } else {
+                        let option = document.createElement("option");
+                        option.value = "";
+                        option.textContent = "No Sub Category Found";
+                        subCategorySelect.appendChild(option);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

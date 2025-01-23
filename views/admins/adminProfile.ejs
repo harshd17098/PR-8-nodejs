@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="./assets/images/favicon.svg" type="image/x-icon" />
+    <title>Form Elements HRD | PlainAdmin Demo</title>
+
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/assets/css/lineicons.css" />
+    <link rel="stylesheet" href="/assets/css/materialdesignicons.min.css" />
+    <link rel="stylesheet" href="/assets/css/fullcalendar.css" />
+    <link rel="stylesheet" href="/assets/css/main.css" />
+</head>
+
+<body>
+    <div id="preloader">
+        <div class="spinner"></div>
+    </div>
+    <main class="main-wrapper">
+        <%- include('../navBar.ejs')%>
+            <section class="tab-components">
+                <div class="container">
+                    <div class="title-wrapper pt-30">
+                        <div class="row align-items-center">
+                            <div class="col-md-6">
+                                <div class="title">
+                                    <h2>Admin Details</h2>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="breadcrumb-wrapper">
+                                    <nav aria-label="breadcrumb">
+                                        <ol class="breadcrumb">
+                                            <li class="breadcrumb-item">
+                                                <a href="#0">Dashboard</a>
+                                            </li>
+                                            <li class="breadcrumb-item">
+                                                <a href="#0">UI Components</a>
+                                            </li>
+                                            <li class="breadcrumb-item active" aria-current="page">
+                                                Typography
+                                            </li>
+                                        </ol>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-7">
+                            <div class="card-style mb-30">
+
+                                <div class="heading-one mb-30">
+                                    <img src="<%= locals.admin.adminImg %>" style="height: 500px; width: 690px;" alt="">
+                                </div>
+
+
+                            </div>
+
+                        </div>
+                        <div class="col-lg-5">
+                            <div class="card-style mb-30">
+                                <h5 class="mb-30 text-medium" style="text-align: center;">Admin Info </h5>
+                                <div class="mb-30">
+                                    <h5 class="text-medium mb-10">Admin Name</h5>
+                                    <p class="text-sm">
+                                        <%= locals.admin.firstname %>
+                                            <%= locals.admin.lastname %>
+                                    </p>
+                                </div>
+                                <div class="mb-30">
+                                    <h5 class="text-medium mb-10">Email</h5>
+                                    <p class="text-sm">
+                                        <%= locals.admin.email %>
+                                    </p>
+                                </div>
+                                <div class="mb-30">
+                                    <h5 class="text-medium mb-10">Gender</h5>
+                                    <p class="text-sm">
+                                        <%= locals.admin.gender%>
+                                    </p>
+                                </div>
+                                <div class="mb-30">
+                                    <h5 class="text-medium mb-10">Hobby</h5>
+                                    <p class="text-sm">
+                                        <%= locals.admin.hobby %>
+                                    </p>
+                                </div>
+                                <div class="mb-30">
+                                    <h5 class="text-medium mb-10">Contact</h5>
+                                    <p class="text-sm">
+                                        +91 <%= locals.admin.contactnb %>
+                                    </p>
+                                </div>
+                                <div class="mb-30">
+                                    <h5 class="text-medium mb-10">Info</h5>
+                                    <p class="text-sm">
+                                        <%= locals.admin.info %>
+                                    </p>
+                                </div>
+
+                            </div>
+                        </div>
+            </section>
+            <section class="card-components">
+                <div class="container-fluid">
+                    <!-- ========== title-wrapper start ========== -->
+                    <div class="title-wrapper pt-30">
+                        <div class="row align-items-center">
+                            <div class="col-md-6">
+                                <div class="title">
+                                    <h2>Uploads Blog</h2>
+                                </div>
+                            </div>
+                            <!-- end col -->
+                            
+                            <!-- end col -->
+                        </div>
+                        <!-- end row -->
+                    </div>
+                    <!-- ========== title-wrapper end ========== -->
+
+                    <!-- ========== cards-styles start ========== -->
+                    <div class="cards-styles">
+                        <!-- ========= card-style-1 start ========= -->
+                        <div class="row">
+
+                            <% if () { %>
+                                <% .forEach(blog=> { %>
+                                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
+                                    
+                                        <div class="card-style-1 mb-30">
+                                            <div class="card-meta">
+
+                                                
+                                                <div class="text">
+                                                    <p class="text-sm text-medium">
+                                                        Posted by : <a href="#0">
+                                                            
+                                                        </a>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="card-image">
+                                                <a href="#0">
+                                                    <img src="" alt="" />
+                                                </a>
+                                            </div>
+                                            <div class="card-content">
+                                                <h4><a href="">
+                                                         HR MINT
+                                                    </a></h4>
+                                                <p>
+                                                    With supporting text below as a natural lead-in to
+                                                    additional content. consectetur adipiscing elit. Integer
+                                                    posuere erat a ante.
+                                                </p>
+                                            </div>
+                                           <div style="display: flex;justify-content: space-evenly; padding-top: 15px;">
+                                                <a href="" class="main-btn danger-btn rounded-full btn-hover" style="margin-right: 10px;">
+                                                    <i class="lni lni-trash-can"></i>
+                                                </a>
+                                                <a href="" class="main-btn success-btn rounded-full btn-hover" style="margin-right: 10px;">
+                                                    <i class="lni lni-pencil-alt"></i>
+                                                </a>
+                                                <a href="" class="main-btn warning-btn rounded-full btn-hover">
+                                                    <i class="lni lni-indent-increase"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        
+                                </div>
+                                <% }); %>
+                                <% } else { %>
+                                    <p style="font-weight: 900;">You have not Post any blogs yet.</p>
+                                    <% } %>
+
+                        </div>
+                        <!-- end col -->
+                    </div>
+
+                </div>
+                <!-- ========== cards-styles end ========== -->
+                </div>
+                <!-- end container -->
+            </section>
+
+            <footer class="footer">
+                <div class="container-fluid">
+                    <div class="row">
+                        
+                        <div class="col-md-6">
+                            <div class="terms d-flex justify-content-center justify-content-md-end">
+                                <a href="#0" class="text-sm">Term & Conditions</a>
+                                <a href="#0" class="text-sm ml-15">Privacy & Policy</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+    </main>
+    <script src="/assets/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/js/Chart.min.js"></script>
+    <script src="/assets/js/dynamic-pie-chart.js"></script>
+    <script src="/assets/js/moment.min.js"></script>
+    <script src="/assets/js/fullcalendar.js"></script>
+    <script src="/assets/js/jvectormap.min.js"></script>
+    <script src="/assets/js/world-merc.js"></script>
+    <script src="/assets/js/polyfill.js"></script>
+    <script src="/assets/js/main.js"></script>
+</body>
+
+</html>
