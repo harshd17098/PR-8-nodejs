@@ -24,7 +24,6 @@ exports.singleBook = async (req, res) => {
         let books = await Books.findById(req.params.id)
             .populate('categoryId')
             .populate('subcategoryId');
-            console.log(books,"hyyyyyy");
             
         if (!books) {
             return res.status(404).render('error', { message: 'Book not found' });

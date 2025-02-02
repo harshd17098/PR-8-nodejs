@@ -36,11 +36,8 @@ passport.validateUser = (req, res, next) => {
 }
 
 passport.setLocalUser = (req, res, next) => {
-    if(req.isAuthenticated()){
-       
-        
+    if(req.isAuthenticated()){      
         res.locals.admin = req.user;
-
     }
     next();
 }
